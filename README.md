@@ -24,3 +24,5 @@
 <img src="MVI.jpg"/>
 
 ## Introducing decoupled MVI approach for Android in 2023
+
+https://medium.com/@janbarari/introducing-decoupled-mvi-approach-for-android-in-2023-b93e4a16fb1b
