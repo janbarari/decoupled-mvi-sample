@@ -17,6 +17,7 @@ import io.github.janbarari.decoupledmvisample.home.aser.HomeAction
 import io.github.janbarari.decoupledmvisample.home.presentation.HomeViewModel
 import io.github.janbarari.decoupledmvisample.theme.DecoupledMVISampleTheme
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
@@ -24,6 +25,12 @@ fun MainScreen() {
     val viewModel: HomeViewModel = viewModel()
     val coroutineScope = rememberCoroutineScope()
     val state by viewModel.state.collectAsState()
+
+    LaunchedEffect(Unit) {
+        viewModel.effect.collectLatest {
+            // Handle effects that require user interface (UI) changes, such as displaying popups or other UI elements
+        }
+    }
 
     Column(
         modifier = Modifier.fillMaxSize(),
